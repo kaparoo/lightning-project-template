@@ -44,10 +44,37 @@
 
 ## :gear: **Prerequisites**
 
+<!-- (   REMOVE THIS FROM YOUR PROJECT README    ) -->
+
+> :fire: **REMOVE THIS BLOCK QUOTE IN YOUR PROJECT README**  
+> This template supports packaging using [hatch]. If you have published your project, please describe how to install and import your project through this and the next section: :sparkles: **`project/`**.  
+>  
+> For example, suppose you published your project as a package named `my-package`,  
+> *(but the top-level namespace is still `project`)*
+>   
+>> If you want to use this project as a package in yours, install this via pip:
+>> ```bash
+>> $ python -m pip install YOUR_PACKAGE_NAME
+>> ```
+>>  
+>> Now you can import this in your code:
+>> ``` python
+>> # Import `MyModel` from `project/models/path/to/file.py`
+>> from project.models.path.to.file import MyModel
+>> 
+>> # Import `MyDataset` from `project/datasets/path/to/file.py`
+>> from project.datasets.path.to.file import MyDataset
+>> ```
+
+[hatch]: https://github.com/pypa/hatch
+
+<!-- (                    END                    ) -->
+
+
 First, clone this repository:
 
 ```bash
-$ git clone https://www.github.com/YOUR/REPOSITORY project
+$ git clone https://github.com/YOUR/REPOSITORY project
 $ cd project
 ```
 
