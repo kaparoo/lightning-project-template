@@ -27,8 +27,9 @@
     - [:desktop_computer: scripts/](#desktop_computer-scripts)
     - [:ledger: notebooks/](#ledger-notebooks)
     - [:floppy_disk: saves/](#floppy_disk-saves)
-- [:mag: References](#mag-references)  
 - [:scroll: Citation](#scroll-citation)
+- [:pray: Aknowledgements](#pray-acknowledgements)
+- [:mag: References](#mag-references)  
 - [:balance_scale: License](#balance_scale-license)  
 
 </details>
@@ -140,13 +141,17 @@ $ python ./scripts/SCRIPT_NAME.py --help
 
 [saves/]: ./saves/
 
-## :mag: **References**
-
-*YOUR REFERENCES HERE*
-
 ## :scroll: **Citation**
 
 *YOUR CITATION HERE*
+
+## :pray: **Acknowledgements**
+
+*YOUR ACKNOWLEDGEMENTS HERE*
+
+## :mag: **References**
+
+*YOUR REFERENCES HERE*
 
 ## :balance_scale: **License**
 
