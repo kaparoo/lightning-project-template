@@ -1,0 +1,18 @@
+# The officially recommended dependencies of PyTorch ecosystem.
+# When `torch` is installed using this file, other major dependencies
+# such as `numpy` and `pillow` are automatically installed as well.
+# The given --extra-index-url is based on CUDA 11.7. If you are using 
+# a different version, modify the 'cu117' part to match yours.
+# see https://pytorch.org/get-started/locally/
+--extra-index-url https://download.pytorch.org/whl/cu117
+torch
+torchvision
+torchaudio
+
+# Other dependencies
+torchinfo
+tensorboard
+python-dotenv
+matplotlib
+jupyter
+lightning>=2.0
