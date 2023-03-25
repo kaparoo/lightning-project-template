@@ -20,7 +20,7 @@ name = "YOUR_PROJECT_NAME"
 dynamic = ["version"]
 description = "YOUR_PROJECT_DESCRIPTION"
 readme = "README.md"
-requires-python = "PYTHON_VERSION_SPECIFIER"
+requires-python = ">=3.10+"
 license = { file = "LICENSE" }
 authors = [
     { name = "AUTHOR_NAME", email = "AUTHOR_EMAIL" },
@@ -35,20 +35,34 @@ keywords = [
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Environment :: GPU",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Environment :: GPU :: NVIDIA CUDA :: 11",
+    "Environment :: GPU :: NVIDIA CUDA :: 11.7",
     "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Typing :: Typed",
     # See https://pypi.org/classifiers/ for more classifiers
 ]
 dependencies = [
-    "YOUR",
-    "PROJECT",
-    "DEPENDENCIES",
+    "torch>=2.0.0+cu117",
+    "torchvision>=0.15.1+cu117",
+    "torchaudio>=2.0.1+cu117",
+    "torchinfo",
+    "tensorboard",
+    "python-dotenv",
+    "matplotlib",
+    "jupyter",
+    "lightning>=2.0",
 ]
 
 [project.optional-dependencies]
