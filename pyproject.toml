@@ -1,0 +1,119 @@
+# See the following PEPs for more information
+# https://peps.python.org/pep-0517/
+# https://peps.python.org/pep-0518/
+# https://peps.python.org/pep-0621/
+
+# ========================== #
+#        Build System        #
+# ========================== #
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# ========================== #
+#      Project Metadata      #
+# ========================== #
+
+[project]
+name = "YOUR_PROJECT_NAME"
+dynamic = ["version"]
+description = "YOUR_PROJECT_DESCRIPTION"
+readme = "README.md"
+requires-python = "PYTHON_VERSION_SPECIFIER"
+license = { file = "LICENSE" }
+authors = [
+    { name = "AUTHOR_NAME", email = "AUTHOR_EMAIL" },
+]
+maintainers = [
+    { name = "MAINTAINER_NAME", email = "MAINTAINER_EMAIL"}
+]
+keywords = [
+    "YOUR",
+    "PROJECT",
+    "KEYWORDS",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Typing :: Typed",
+    # See https://pypi.org/classifiers/ for more classifiers
+]
+dependencies = [
+    "YOUR",
+    "PROJECT",
+    "DEPENDENCIES",
+]
+
+[project.optional-dependencies]
+dev = [
+    "hatch",
+    "ruff",
+    "mypy",
+    "black",
+    "pytest",
+]
+# Reserved for future addition of --only-deps option to `pip install`
+# See https://github.com/pypa/pip/issues/11440 for more information
+
+[project.urls]
+GitHub = "https://www.github.com/YOUR/REPOSITORY"
+
+# ========================== #
+#      [tool.*] Sections     #
+# ========================== #
+
+[tool.hatch.build]
+only-include = ["project"]
+# See the following documentations for more information
+# https://hatch.pypa.io/latest/build/
+# https://hatch.pypa.io/latest/config/build/
+
+[tool.hatch.version]
+path = "project/__about__.py"
+# See the following documentation for more information
+# https://hatch.pypa.io/latest/version/
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+allow_redefinition = true
+show_column_numbers = true
+show_error_codes = true
+pretty = true
+exclude = ["tests/"]
+# See the following documentation for more information
+# https://mypy.readthedocs.io/en/stable/config_file.html
+
+[tool.black]
+line-length = 88
+# See the following documentation for more information
+# https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html
+
+[tool.pytest.ini_options]
+testpaths = ["tests/"]
+# See the following documentation for more information
+# https://docs.pytest.org/en/latest/reference/customize.html
+
+[tool.ruff]
+line-length = 88
+ignore-init-module-imports = true
+# See the following documentations for more information
+# https://beta.ruff.rs/docs/configuration/
+# https://beta.ruff.rs/docs/settings/
+# https://beta.ruff.rs/docs/rules/
+
+[tool.ruff.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.ruff.flake8-unused-arguments]
+ignore-variadic-names = true
+
+[tool.ruff.isort]
+known-first-party = ["project"]
