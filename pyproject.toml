@@ -20,7 +20,7 @@ name = "YOUR_PROJECT_NAME"
 dynamic = ["version"]
 description = "YOUR_PROJECT_DESCRIPTION"
 readme = "README.md"
-requires-python = ">=3.10+"
+requires-python = ">=3.10"
 license = { file = "LICENSE" }
 authors = [
     { name = "AUTHOR_NAME", email = "AUTHOR_EMAIL" },
