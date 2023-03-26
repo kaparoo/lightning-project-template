@@ -43,7 +43,7 @@ class FashionMNISTClassifier(LightningModule):
         self.valid_epoch_losees: list[float] = []
 
     def forward(self, x: Tensor) -> Tensor:
-        return self.network(x)
+        return self.network.forward(x)  # type: ignore
 
     def configure_optimizers(self):
         lr = self.hparams.learning_rate
