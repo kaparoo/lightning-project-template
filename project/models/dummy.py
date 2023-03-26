@@ -36,8 +36,11 @@ class FashionMNISTClassifier(LightningModule):
         )
         self.num_classes = out_channels
 
-        self.step_losses: list[float] = []
-        self.epoch_losees: list[float] = []
+        self.train_step_losses: list[float] = []
+        self.train_epoch_losees: list[float] = []
+
+        self.valid_step_losses: list[float] = []
+        self.valid_epoch_losees: list[float] = []
 
     def forward(self, x: Tensor) -> Tensor:
         return self.network(x)
@@ -48,19 +51,46 @@ class FashionMNISTClassifier(LightningModule):
         beta2 = self.hparams.beta2
         return Adam(self.network.parameters(), lr=lr, betas=(beta1, beta2))
 
-    def training_step(self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
+    def parse_batch(self, batch: tuple[Tensor, Tensor]) -> tuple[Tensor, Tensor]:
         images, labels = batch
-        preds = self(images)
         labels = F.one_hot(labels, num_classes=self.num_classes)
         labels = labels.type(torch.FloatTensor).to(self.device)
-        loss = F.binary_cross_entropy(preds, labels)
-        self.step_losses.append(loss.item())
-        self.log("loss", loss, prog_bar=True)
+        return images, labels
+    
+    def calc_loss(self, batch: tuple[Tensor, Tensor]) -> Tensor:
+        images, labels = self.parse_batch(batch)
+        return F.binary_cross_entropy(self(images), labels)
+
+
+    def training_step(self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
+        loss = self.calc_loss(batch)
+        self.train_step_losses.append(loss.item())
+        self.log("train_loss", loss, prog_bar=True)
         return loss
 
     def on_train_epoch_start(self) -> None:
-        self.step_losses = []
+        self.train_step_losses = []
 
     def on_train_epoch_end(self) -> None:
-        epoch_loss = sum(self.step_losses) / len(self.step_losses)
-        self.epoch_losees.append(epoch_loss)
+        epoch_loss = sum(self.train_step_losses) / len(self.train_step_losses)
+        self.train_epoch_losees.append(epoch_loss)
+
+    def validation_step(self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
+        loss = self.calc_loss(batch)
+        self.valid_step_losses.append(loss.item())
+        self.log("val_loss", loss, prog_bar=True)
+        return loss
+
+    def on_validation_epoch_start(self) -> None:
+        self.valid_step_losses = []
+
+    def on_validation_epoch_end(self) -> None:
+        epoch_loss = sum(self.valid_step_losses) / len(self.valid_step_losses)
+        self.valid_epoch_losees.append(epoch_loss)
+
+    def test_step(self,  batch: tuple[Tensor, Tensor], _: int) -> Tensor:
+        loss = self.calc_loss(batch)
+        self.log("test_loss", loss, prog_bar=True)
+        return loss
+
+
