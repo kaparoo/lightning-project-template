@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader, random_split
 from torchvision.datasets import FashionMNIST
 
 _BATCH_SIZE: int = 256 if torch.cuda.is_available() else 64
-_NUM_WORKERS: int = os.cpu_count() // 2
+_NUM_WORKERS: int = num_cpus // 2 if isinstance(num_cpus := os.cpu_count(), int) else 0
 
 
 class FashionMNISTDataModule(LightningDataModule):
