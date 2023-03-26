@@ -26,4 +26,4 @@ def test_init(device):
 def test_forward(device, random_input):
     model = FashionMNISTClassifier().to(device)
     y_hat = model(random_input)
-    assert y_hat.shape == torch.Size([len(random_input), model.hparams.out_channels])
+    assert y_hat.shape == torch.Size([len(random_input), model.num_classes])
