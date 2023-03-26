@@ -105,6 +105,14 @@ exclude = ["tests/"]
 # See the following documentation for more information
 # https://mypy.readthedocs.io/en/stable/config_file.html
 
+[[tool.mypy.overrides]]
+module = [
+    "lightning",
+    "torchvision",
+    "torchvision.*",
+]
+ignore_missing_imports = true
+
 [tool.black]
 line-length = 88
 # See the following documentation for more information
