@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ("MNISTClassifier",)
+__all__ = ("FashionMNISTClassifier",)
 
 
 import torch.nn as nn
@@ -10,7 +10,7 @@ from torch import Tensor
 from torch.optim import Adam
 
 
-class MNISTClassifier(LightningModule):
+class FashionMNISTClassifier(LightningModule):
     def __init__(
         self, 
         in_channels: int = 1, 
