@@ -6,7 +6,7 @@
 
 |||
 |---|---|
-|**Research**| [![Paper](http://img.shields.io/badge/paper-arXiv.0000.0000-B31B1B.svg)](https://www.arXiv.org/abs/0000.0000) [![Conference](http://img.shields.io/badge/conference-year-4b44ce.svg)]() |
+|**Publication**| [![Paper](http://img.shields.io/badge/paper-arXiv.0000.0000-B31B1B.svg)](https://www.arXiv.org/abs/0000.0000) [![Conference](http://img.shields.io/badge/conference-year-4b44ce.svg)]() |
 |**Environment**| [![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white)](https://github.com/Lightning-AI/lightning) [![CUDA](https://img.shields.io/badge/CUDA-11.7-76B900.svg)](https://developer.nvidia.com/cuda-toolkit) [![Python](https://img.shields.io/badge/python-3.10-blue.svg?)](https://www.python.org/downloads/)|
 |**Metadata**| [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff) [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
 
@@ -19,18 +19,18 @@
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
-- [:wave: Overview](#wave-overview)
-- [:gear: Prerequisites](#gear-prerequisites)
-- [:file_folder: Directories](#file_folder-directories)  
-    - [:sparkles: project/](#sparkles-project)
-    - [:test_tube: tests/](#test_tube-tests)
-    - [:desktop_computer: scripts/](#desktop_computer-scripts)
-    - [:ledger: notebooks/](#ledger-notebooks)
-    - [:floppy_disk: saves/](#floppy_disk-saves)
-- [:scroll: Citation](#scroll-citation)
-- [:pray: Aknowledgements](#pray-acknowledgements)
-- [:mag: References](#mag-references)  
-- [:balance_scale: License](#balance_scale-license)  
+- [:wave: **Overview**](#wave-overview)
+- [:gear: **Prerequisites**](#gear-prerequisites)
+- [:file_folder: **Directories**](#file_folder-directories)  
+    - [:sparkles: **project/**](#sparkles-project)
+    - [:test_tube: **tests/**](#test_tube-tests)
+    - [:desktop_computer: **scripts/**](#desktop_computer-scripts)
+    - [:ledger: **notebooks/**](#ledger-notebooks)
+    - [:floppy_disk: **saves/**](#floppy_disk-saves)
+- [:scroll: **Citation**](#scroll-citation)
+- [:pray: **Aknowledgements**](#pray-acknowledgements)
+- [:mag: **References**](#mag-references)  
+- [:balance_scale: **License**](#balance_scale-license)  
 
 </details>
 
