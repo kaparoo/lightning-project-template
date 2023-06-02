@@ -6,8 +6,9 @@
 # see https://pytorch.org/get-started/locally/
 --extra-index-url https://download.pytorch.org/whl/cu117
 torch
-torchvision
 torchaudio
+torchtext
+torchvision
 
 # Other dependencies
 torchinfo
