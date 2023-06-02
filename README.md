@@ -7,7 +7,7 @@
 |||
 |---|---|
 |**Publication**| [![Paper](http://img.shields.io/badge/paper-arXiv.0000.0000-B31B1B.svg)](https://www.arXiv.org/abs/0000.0000) [![Conference](http://img.shields.io/badge/conference-year-4b44ce.svg)]() |
-|**Environment**| [![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white)](https://github.com/Lightning-AI/lightning) [![CUDA](https://img.shields.io/badge/CUDA-11.7-76B900.svg)](https://developer.nvidia.com/cuda-toolkit) [![Python](https://img.shields.io/badge/python-3.10-blue.svg?)](https://www.python.org/downloads/)|
+|**Environment**| [![Lightning](https://img.shields.io/badge/-Lightning%202.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://github.com/Lightning-AI/lightning) [![CUDA](https://img.shields.io/badge/CUDA-11.7-76B900.svg)](https://developer.nvidia.com/cuda-toolkit) [![Python](https://img.shields.io/badge/python-3.10+-blue.svg?)](https://www.python.org/downloads/)|
 |**Metadata**| [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff) [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
 
 <!-- [                    END                    ] -->
@@ -125,10 +125,11 @@ from project.datasets.path.to.file import MyDataset
 
 [tests/] contains every test case of the source codes of this project.  
 To run them, you should install the [pytest][pytest-url] *included in the [dev-dependencies]*.  
-> [This extension][extension-test-url] may help you to run the test cases conveniently.
+> In the [VSCode][vscode-url] environment, [This extension][extension-test-url] may help you to run the test cases conveniently.
 
 [tests/]: ./tests/
-[pytest-url]: https://docs.pytest.org/en/7.2.x/
+[pytest-url]: https://docs.pytest.org/en/latest/
+[vscode-url]: https://code.visualstudio.com/
 [extension-test-url]: https://marketplace.visualstudio.com/items?itemName=LittleFoxTeam.vscode-python-test-adapter
 
 ### :desktop_computer: `scripts/`
@@ -156,10 +157,11 @@ $ python ./scripts/SCRIPT_NAME.py --help
 ### :ledger: `notebooks/`
 
 [notebooks/] contains [jupyter notebook][jupyter-url] files for training, validation, testing, visualization, etc.  
-> [This extension][extension-jupyter-url] may help you to run the notebooks conveniently.
+> In the [VSCode][vscode-url] environment, [this extension][extension-jupyter-url] may help you to run the notebooks conveniently.
 
 [notebooks/]: ./notebooks/
 [jupyter-url]: https://jupyter.org/
+[vscode-url]: https://code.visualstudio.com/
 [extension-jupyter-url]: https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter
 
 ### :floppy_disk: `saves/`
