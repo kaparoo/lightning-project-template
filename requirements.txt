@@ -16,4 +16,5 @@ tensorboard
 python-dotenv
 matplotlib
 jupyter
+soundfile
 lightning[pytorch-extra]>=2.0
