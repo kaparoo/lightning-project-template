@@ -7,8 +7,8 @@
 |||
 |---|---|
 |**Publication**| [![Paper](http://img.shields.io/badge/paper-arXiv.0000.0000-B31B1B.svg)](https://www.arXiv.org/abs/0000.0000) [![Conference](http://img.shields.io/badge/conference-year-4b44ce.svg)]() |
-|**Environment**| [![Lightning](https://img.shields.io/badge/-Lightning%202.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://github.com/Lightning-AI/lightning) [![CUDA](https://img.shields.io/badge/CUDA-11.7-76B900.svg)](https://developer.nvidia.com/cuda-toolkit) [![Python](https://img.shields.io/badge/python-3.10+-blue.svg?)](https://www.python.org/downloads/)|
-|**Metadata**| [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
+|**Environment**| [![Lightning](https://img.shields.io/badge/-Lightning%202.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://github.com/Lightning-AI/lightning) [![CUDA](https://img.shields.io/badge/CUDA-11.7+-76B900.svg)](https://developer.nvidia.com/cuda-toolkit) [![Python](https://img.shields.io/badge/python-3.10+-blue.svg?)](https://www.python.org/downloads/)|
+|**Metadata**| [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/) |
 
 <!-- [                    END                    ] -->
 
@@ -54,7 +54,7 @@
 >   
 >> If you want to use this project as a package in yours, install this via pip:
 >> ```bash
->> $ python -m pip install YOUR_PACKAGE_NAME
+>> $ python -m pip install my-package
 >> ```
 >>  
 >> Now you can import this in your code:
@@ -184,7 +184,7 @@ $ python ./scripts/SCRIPT_NAME.py --help
 
 ## :balance_scale: **License**
 
-This project is distributed under the terms of [*YOUR LICENSE HERE*](./LICENSE) license.  
+This project is distributed under the terms of the [*YOUR LICENSE HERE*](./LICENSE) license.  
 
 <!-- (   REMOVE THIS FROM YOUR PROJECT README    ) -->
 
