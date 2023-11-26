@@ -60,7 +60,7 @@ dependencies = [
     "python-dotenv",
     "matplotlib",
     "jupyter",
-    "lightning>=2.0",
+    "lightning[pytorch-extra]>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -109,7 +109,6 @@ warn_unreachable = true
 
 [[tool.mypy.overrides]]
 module = [
-    "lightning",
     "torchvision",
     "torchvision.*",
 ]
@@ -124,6 +123,7 @@ testpaths = ["tests/"]
 
 [tool.ruff]
 cache-dir = "./.cache/ruff"
+extend-include = ["*.ipynb"]
 extend-exclude = [".cache", ".venv*", ".vscode", "tests"]
 ignore-init-module-imports = true
 # See the following documentation for more information
@@ -153,6 +153,7 @@ extend-select = [
     "PL",    # Pylint
     "TRY",   # tryceratops
     "FLY",   # flynt
+    "NPY",   # NumPy-specific rules
     "PERF",  # Perflint
     # "FURB",  # refurb (in preview)
     "RUF",   # Ruff-specific rules
