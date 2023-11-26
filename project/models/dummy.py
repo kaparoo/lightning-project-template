@@ -1,10 +1,10 @@
 __all__ = ("FashionMNISTClassifier",)
 
-import torch
 import torch.nn.functional as F
 from lightning import LightningModule
 from torch import Tensor, nn
 from torch.optim import Adam, Optimizer
+from torchmetrics.functional.classification import multiclass_accuracy
 from typing_extensions import Self
 
 
@@ -18,7 +18,7 @@ class FashionMNISTClassifier(LightningModule):
         beta2: float = 0.999,
     ) -> None:
         super().__init__()
-        self.save_hyperparameters()
+
         self.network = nn.Sequential(
             nn.Conv2d(in_channels, 128, 3),
             nn.BatchNorm2d(128),
@@ -30,16 +30,8 @@ class FashionMNISTClassifier(LightningModule):
             nn.MaxPool2d(2),
             nn.Flatten(),
             nn.Linear(6400, out_channels),
-            nn.Softmax(dim=1),
         )
         self.num_classes = out_channels
-
-        self.train_step_losses: list[float] = []
-        self.train_epoch_losees: list[float] = []
-
-        self.valid_step_losses: list[float] = []
-        self.valid_epoch_losees: list[float] = []
-
         self.lr = learning_rate
         self.betas = (beta1, beta2)
 
@@ -49,43 +41,24 @@ class FashionMNISTClassifier(LightningModule):
     def configure_optimizers(self: Self) -> Optimizer:
         return Adam(self.network.parameters(), lr=self.lr, betas=self.betas)
 
-    def parse_batch(self: Self, batch: tuple[Tensor, Tensor]) -> tuple[Tensor, Tensor]:
+    def _common_step(self: Self, batch: tuple[Tensor, Tensor]) -> tuple[Tensor, Tensor]:
         images, labels = batch
-        labels = F.one_hot(labels, num_classes=self.num_classes)
-        labels = labels.type(torch.FloatTensor).to(self.device)
-        return images, labels
-
-    def calc_loss(self: Self, batch: tuple[Tensor, Tensor]) -> Tensor:
-        images, labels = self.parse_batch(batch)
-        return F.binary_cross_entropy(self.forward(images), labels)
+        logits = self.forward(images)
+        loss = F.cross_entropy(logits, labels)
+        accuracy = multiclass_accuracy(logits, labels, num_classes=self.num_classes)
+        return loss, accuracy
 
     def training_step(self: Self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
-        loss = self.calc_loss(batch)
-        self.train_step_losses.append(loss.item())
-        self.log("train_loss", loss, prog_bar=True)
+        loss, accuracy = self._common_step(batch)
+        self.log_dict({"train_loss": loss, "train_acc": accuracy}, prog_bar=True)
         return loss
-
-    def on_train_epoch_start(self: Self) -> None:
-        self.train_step_losses = []
-
-    def on_train_epoch_end(self: Self) -> None:
-        epoch_loss = sum(self.train_step_losses) / len(self.train_step_losses)
-        self.train_epoch_losees.append(epoch_loss)
 
     def validation_step(self: Self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
-        loss = self.calc_loss(batch)
-        self.valid_step_losses.append(loss.item())
-        self.log("val_loss", loss, prog_bar=True)
+        loss, accuracy = self._common_step(batch)
+        self.log_dict({"valid_loss": loss, "valid_acc": accuracy}, prog_bar=True)
         return loss
 
-    def on_validation_epoch_start(self: Self) -> None:
-        self.valid_step_losses = []
-
-    def on_validation_epoch_end(self: Self) -> None:
-        epoch_loss = sum(self.valid_step_losses) / len(self.valid_step_losses)
-        self.valid_epoch_losees.append(epoch_loss)
-
     def test_step(self: Self, batch: tuple[Tensor, Tensor], _: int) -> Tensor:
-        loss = self.calc_loss(batch)
-        self.log("test_loss", loss, prog_bar=True)
+        loss, accuracy = self._common_step(batch)
+        self.log_dict({"test_loss": loss, "test_acc": accuracy}, prog_bar=True)
         return loss
