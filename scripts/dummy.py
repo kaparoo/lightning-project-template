@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from lightning.pytorch.cli import LightningCLI
 
 from project.datasets.dummy import FashionMNISTDataModule
