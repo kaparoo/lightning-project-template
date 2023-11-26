@@ -12,5 +12,4 @@
 hatch
 ruff
 mypy
-black
 pytest
