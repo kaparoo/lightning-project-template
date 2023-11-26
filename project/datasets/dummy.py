@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
-
 __all__ = ("FashionMNISTDataModule",)
 
 import os
 
 import torch
-import torchvision.transforms as transforms
 from lightning import LightningDataModule
 from torch.utils.data import DataLoader, random_split
+from torchvision import transforms
 from torchvision.datasets import FashionMNIST
+from typing_extensions import Self
 
 _BATCH_SIZE: int = 256 if torch.cuda.is_available() else 64
 _NUM_WORKERS: int = num_cpus // 2 if isinstance(num_cpus := os.cpu_count(), int) else 0
@@ -16,11 +15,11 @@ _NUM_WORKERS: int = num_cpus // 2 if isinstance(num_cpus := os.cpu_count(), int)
 
 class FashionMNISTDataModule(LightningDataModule):
     def __init__(
-        self,
+        self: Self,
         root: os.PathLike,
         batch_size: int = _BATCH_SIZE,
         num_workers: int = _NUM_WORKERS,
-    ):
+    ) -> None:
         super().__init__()
         self.root = str(root)
         self.batch_size = batch_size
@@ -62,7 +61,7 @@ class FashionMNISTDataModule(LightningDataModule):
             self.data_valid,
             batch_size=self.batch_size,
             num_workers=self.num_workers,
-            shuffle=True,
+            shuffle=False,
         )
 
     def test_dataloader(self):
@@ -70,5 +69,5 @@ class FashionMNISTDataModule(LightningDataModule):
             self.data_test,
             batch_size=self.batch_size,
             num_workers=self.num_workers,
-            shuffle=True,
+            shuffle=False,
         )
