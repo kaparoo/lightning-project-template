@@ -1,6 +1,6 @@
 # This file contains optional dependencies for the
-# `development`, such as updating or testing the
-# source codes of the project.
+# development, such as updating or testing the
+# project's source codes.
 
 # In this case, you should install all dependencies
 # listed in this file as well as requirements.txt.
